@@ -30,8 +30,10 @@ function addColor() {
     }
 
 
-
-    if (colors.indexOf(color => color.name === addObject.name) === -1) {
+    if (colorData[0] == "" || colorData[1] == "" ) {
+        alert("please add a color and motto")
+    }
+    else if (colors.indexOf(color => color.name === addObject.name) === -1) {
         document.querySelector("body").style.backgroundColor = addObject.name;
         colorLabel.innerHTML = addObject.name;
         mottoName.innerHTML = addObject.motto;
@@ -39,12 +41,15 @@ function addColor() {
         myInput.focus();
         colors.push(addObject)
     }
+
+
+
     else {
         alert("this color has already added")
     }
 
 
-    console.log(colors)
+    
 
 
 
