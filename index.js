@@ -1,38 +1,54 @@
 
-const colors = ["red", "yellow", "blue", "brown", "salmon"];
+const colors = [{ name: "red", motto: "queite Red" },
+{ name: "yellow", motto: "schön yellow" },
+{ name: "blue", motto: "Ocean blue" },
+{ name: "brown", motto: "dark brown" },
+{ name: "salmon", motto: "quite orange" },
+];
 const colorButton = document.querySelector(".button");
 const colorLabel = document.querySelector(".color-label");
 const setColor = document.querySelector(".set-color");
 const myInput = document.querySelector("#input");
-
+const mottoName = document.querySelector("#mottoName");
+// console.log(colors.length)
 colorButton.addEventListener("click", Compute);
 function Compute() {
     const numbers = Math.floor(Math.random() * colors.length);
-    document.querySelector("body").style.backgroundColor = colors[numbers];
-    colorLabel.innerHTML = colors[numbers]
+    document.querySelector("body").style.backgroundColor = colors[numbers].name;
+    colorLabel.innerHTML = colors[numbers].name;
+    mottoName.innerHTML = colors[numbers].motto;
 
 }
 
 
 setColor.addEventListener("click", addColor);
 function addColor() {
-   
-       if (colors.includes(myInput.value)){
+    const colorData = myInput.value.split(":");
+    const addObject = {
+        name: colorData[0],
+        motto: colorData[1]
+    }
+
+
+
+    if (colors.indexOf(color => color.name === addObject.name) === -1) {
+        document.querySelector("body").style.backgroundColor = addObject.name;
+        colorLabel.innerHTML = addObject.name;
+        mottoName.innerHTML = addObject.motto;
+        myInput.value = ""
+        myInput.focus();
+        colors.push(addObject)
+    }
+    else {
         alert("this color has already added")
-       }
-       else{
-           colors.push(myInput.value)
-           document.querySelector("body").style.backgroundColor = myInput.value;
-           myInput.value =""
-           myInput.focus();
-       } 
+    }
+
+
+    console.log(colors)
 
 
 
-   
-    
 
-     
 
 
 
