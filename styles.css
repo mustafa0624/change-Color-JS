@@ -23,3 +23,8 @@ body {
 .button{
   border-radius: 5px;
 }
+#information{
+  font-size: large;
+  border: 1px solid green;
+  padding: 10px;
+}

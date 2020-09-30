@@ -10,6 +10,7 @@ const colorLabel = document.querySelector(".color-label");
 const setColor = document.querySelector(".set-color");
 const myInput = document.querySelector("#input");
 const mottoName = document.querySelector("#mottoName");
+const information = document.querySelector("#information");
 // console.log(colors.length)
 colorButton.addEventListener("click", Compute);
 function Compute() {
@@ -17,6 +18,7 @@ function Compute() {
     document.querySelector("body").style.backgroundColor = colors[numbers].name;
     colorLabel.innerHTML = colors[numbers].name;
     mottoName.innerHTML = colors[numbers].motto;
+    
 
 }
 
